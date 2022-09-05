@@ -3,10 +3,10 @@ package io.zoemeow.dutapi.objects.accounts;
 import java.io.Serializable;
 
 public class ScheduleExam implements Serializable {
-    private String group;
-    private Boolean isGlobal;
-    private Long date;
-    private String room;
+    private String group = "";
+    private Boolean isGlobal = false;
+    private Long date = 0L;
+    private String room = "";
 
     public ScheduleExam() {
 

@@ -2,6 +2,9 @@
 
 This file will list all version log for modified, add or remove function of DUTAPI.
 
+## 1.7.1 (Hotfix for 1.7.0)
+- Fix an issue in SubjectCodeItem cause string parameter in constructor isn't working.
+
 ## 1.7.0
 - Updated implementations to latest.
 - Update features in News Subject. More details please view code [here](src\main\java\io\zoemeow\dutapi\News.java).

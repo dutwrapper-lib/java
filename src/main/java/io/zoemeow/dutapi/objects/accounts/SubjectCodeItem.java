@@ -34,15 +34,14 @@ public class SubjectCodeItem implements Serializable {
     }
 
     public SubjectCodeItem(String input) {
-        if (Arrays.stream(input.split("\\.")).count() == 1) {
-            this.studentYearId = Integer.parseInt(input.split("\\.")[0]);
-            this.classId = input.split("\\.")[1];
-        }
-        else if (Arrays.stream(input.split("\\.")).count() == 3) {
+        if (input.split("\\.").length == 4) {
             this.subjectId = Integer.parseInt(input.split("\\.")[0]);
             this.schoolYearId = Integer.parseInt(input.split("\\.")[1]);
             this.studentYearId = Integer.parseInt(input.split("\\.")[2]);
             this.classId = input.split("\\.")[3];
+        } else if (input.split("\\.").length == 2) {
+            this.studentYearId = Integer.parseInt(input.split("\\.")[0]);
+            this.classId = input.split("\\.")[1];
         }
     }
 
