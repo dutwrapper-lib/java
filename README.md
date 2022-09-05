@@ -3,7 +3,8 @@
 This library provides API (for this repository - crawl data from a page) for access for some features
 in [DUT Student page - Da Nang University of Technology](http://sv.dut.udn.vn). For Java programming language.
 
-![https://github.com/ZoeMeow5466/DUTAPI.Java/releases/latest](https://img.shields.io/github/v/release/ZoeMeow5466/DUTAPI.Java?style=for-the-badge)
+[![https://github.com/ZoeMeow5466/DUTAPI.Java/releases/latest](https://img.shields.io/github/v/release/ZoeMeow5466/DUTAPI.Java?style=for-the-badge)](https://github.com/zoemeow5466/DUTAPI.java/releases/)
+[![](https://jitpack.io/v/ZoeMeow5466/DUTAPI.Java.svg)](https://jitpack.io/#ZoeMeow5466/DUTAPI.Java)
 
 You can also get this library from [here!](https://jitpack.io/#ZoeMeow5466/DUTAPI.Java/). Thanks
 to [JitPack.io](https://jitpack.io/) for providing it!
