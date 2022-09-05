@@ -1,4 +1,4 @@
-package io.zoemeow.dutapi.objects;
+package io.zoemeow.dutapi.objects.news;
 
 import java.io.Serializable;
 import java.util.ArrayList;

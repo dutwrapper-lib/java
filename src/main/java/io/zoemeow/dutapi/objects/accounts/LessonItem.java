@@ -1,16 +1,16 @@
-package io.zoemeow.dutapi.objects;
+package io.zoemeow.dutapi.objects.accounts;
 
 import java.io.Serializable;
 
-public class WeekItem implements Serializable {
+public class LessonItem implements Serializable {
     private Integer start;
     private Integer end;
 
-    public WeekItem() {
-        
+    public LessonItem() {
+
     }
 
-    public WeekItem(Integer start, Integer end) {
+    public LessonItem(Integer start, Integer end) {
         this.start = start;
         this.end = end;
     }
@@ -29,5 +29,10 @@ public class WeekItem implements Serializable {
 
     public void setEnd(Integer end) {
         this.end = end;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d-%d", start, end);
     }
 }

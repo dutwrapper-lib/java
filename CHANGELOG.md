@@ -2,6 +2,11 @@
 
 This file will list all version log for modified, add or remove function of DUTAPI.
 
+## 1.7.0
+- Updated implementations to latest.
+- Update features in News Subject. More details please view code [here](src\main\java\io\zoemeow\dutapi\News.java).
+- Add a function to get current DUT week.
+
 ## 1.6.3
 
 - Extended timeout limit to 60 seconds.
@@ -35,11 +40,13 @@ This file will list all version log for modified, add or remove function of DUTA
 ## 1.4.2
 
 [.NET]
+
 - Optimize code line.
 
 ## 1.4.1
 
 [.NET]
+
 - Merge GetNewsGeneral() and GetNewsSubject() together.
     - To GetNews().
 
@@ -68,6 +75,7 @@ This file will list all version log for modified, add or remove function of DUTA
 ## 1.0
 
 Inital commit with features:
+
 - Get news general (Nhận thông báo chung).
 - Get news subjects (Nhận thông báo lớp học phần).
 - Sesion (Phiên, dùng để đăng nhập/đăng xuất/lấy thông tin tài khoản).

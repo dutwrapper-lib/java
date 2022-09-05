@@ -1,4 +1,4 @@
-package io.zoemeow.dutapi.objects;
+package io.zoemeow.dutapi.objects.accounts;
 
 import java.io.Serializable;
 
@@ -41,5 +41,5 @@ public class ScheduleItem implements Serializable {
         this.room = room;
     }
 
-    
+
 }

@@ -1,43 +1,15 @@
 package io.zoemeow.dutapi;
 
-import io.zoemeow.dutapi.objects.AccountInformation;
-import io.zoemeow.dutapi.objects.SubjectFeeItem;
-import io.zoemeow.dutapi.objects.SubjectScheduleItem;
-import io.zoemeow.dutapi.objects.customrequest.CustomResponse;
+import io.zoemeow.dutapi.customrequest.CustomResponse;
+import io.zoemeow.dutapi.objects.accounts.AccountInformation;
+import io.zoemeow.dutapi.objects.accounts.SubjectFeeItem;
+import io.zoemeow.dutapi.objects.accounts.SubjectScheduleItem;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 class AccountTest {
-    @Test
-    void finalTest() throws Exception {
-        String sessionId = null;
-        String user = "";
-        String pass = "";
-        Integer year = 21;
-        Integer semester = 2;
-
-        // Initialize Session ID
-        sessionId = initialize();
-        System.out.println(sessionId);
-
-        // Login
-        login(sessionId, user, pass);
-
-        // Subject schedule
-        getSubjectSchedule(sessionId, year, semester);
-
-        // Subject fee
-        getSubjectFee(sessionId, year, semester);
-
-        // Account information
-        getAccountInformation(sessionId);
-
-        // Logout
-        logout(sessionId);
-    }
-
     static String initialize() throws IOException {
         CustomResponse response = Account.getSessionId();
         return response.getSessionId();
@@ -52,8 +24,7 @@ class AccountTest {
 
         if (Account.isLoggedIn(sessionId)) {
             System.out.println("Logged in!");
-        }
-        else throw new Exception("This Session ID hasn't logged in!");
+        } else throw new Exception("This Session ID hasn't logged in!");
     }
 
     static void getSubjectSchedule(String sessionId, Integer year, Integer semester) throws Exception {
@@ -73,7 +44,37 @@ class AccountTest {
 
         if (!Account.isLoggedIn(sessionId)) {
             System.out.println("Logged out!");
-        }
-        else throw new Exception("This Session ID hasn't logged out yet!");
+        } else throw new Exception("This Session ID hasn't logged out yet!");
+    }
+
+    @Test
+    void finalTest() throws Exception {
+        String sessionId;
+
+        String env = System.getenv("dut_account");
+        String user = env.split("\\|")[0];
+        String pass = env.split("\\|")[1];
+
+        Integer year = 22;
+        Integer semester = 1;
+
+        // Initialize Session ID
+        sessionId = initialize();
+        System.out.println(sessionId);
+
+        // Login
+        login(sessionId, user, pass);
+
+        // Subject schedule
+        getSubjectSchedule(sessionId, year, semester);
+
+        // Subject fee
+        getSubjectFee(sessionId, year, semester);
+
+        // Account information
+        getAccountInformation(sessionId);
+
+        // Logout
+        logout(sessionId);
     }
 }

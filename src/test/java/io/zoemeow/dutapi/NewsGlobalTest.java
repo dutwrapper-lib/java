@@ -1,16 +1,12 @@
 package io.zoemeow.dutapi;
 
-import io.zoemeow.dutapi.objects.LinkItem;
-import io.zoemeow.dutapi.objects.NewsGlobalItem;
-import io.zoemeow.dutapi.objects.NewsType;
+import io.zoemeow.dutapi.objects.news.LinkItem;
+import io.zoemeow.dutapi.objects.news.NewsGlobalItem;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class NewsTest {
-
+class NewsGlobalTest {
     @Test
     void getNews() throws Exception {
         int page = 1;
@@ -20,14 +16,14 @@ class NewsTest {
             System.out.println("==================================");
             System.out.println("Page " + page);
 
-            List<NewsGlobalItem> newsList = News.getNews(NewsType.Global, 1);
+            List<NewsGlobalItem> newsList = News.getNewsGlobal(1);
             System.out.println("Item count: " + newsList.size());
 
-            for (NewsGlobalItem newsItem: newsList) {
+            for (NewsGlobalItem newsItem : newsList) {
                 System.out.println(newsItem.getDate());
                 System.out.println(newsItem.getTitle());
                 System.out.println(newsItem.getContentString());
-                for (LinkItem linkItem: newsItem.getLinks()) {
+                for (LinkItem linkItem : newsItem.getLinks()) {
                     System.out.println("Links:");
                     System.out.println(" - " + linkItem.getText());
                     System.out.println(" - " + linkItem.getUrl());

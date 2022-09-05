@@ -1,4 +1,4 @@
-package io.zoemeow.dutapi.objects.customrequest;
+package io.zoemeow.dutapi.customrequest;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;

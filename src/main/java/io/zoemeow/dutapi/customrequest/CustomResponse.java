@@ -1,4 +1,4 @@
-package io.zoemeow.dutapi.objects.customrequest;
+package io.zoemeow.dutapi.customrequest;
 
 import io.zoemeow.dutapi.Utils;
 

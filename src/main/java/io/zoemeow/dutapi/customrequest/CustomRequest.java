@@ -1,7 +1,9 @@
-package io.zoemeow.dutapi;
+package io.zoemeow.dutapi.customrequest;
 
-import io.zoemeow.dutapi.objects.customrequest.CustomResponse;
-import okhttp3.*;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -70,10 +72,11 @@ public class CustomRequest {
     private static String getSessionIdFromHeader(String header) {
         if (header != null) {
             String splitChar;
-            if (header.contains("; ")) splitChar = "; "; else splitChar = ";";
+            if (header.contains("; ")) splitChar = "; ";
+            else splitChar = ";";
 
             String[] cookieHeaderSplit = header.split(splitChar);
-            for (String item: cookieHeaderSplit) {
+            for (String item : cookieHeaderSplit) {
                 if (item.contains("ASP.NET_SessionId")) {
                     String[] sessionIdSplit = item.split("=");
                     return sessionIdSplit[1];

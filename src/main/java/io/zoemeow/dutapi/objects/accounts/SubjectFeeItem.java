@@ -1,9 +1,9 @@
-package io.zoemeow.dutapi.objects;
+package io.zoemeow.dutapi.objects.accounts;
 
 import java.io.Serializable;
 
 public class SubjectFeeItem implements Serializable {
-    private String id;
+    private SubjectCodeItem id;
     private String name;
     private Integer credit;
     private Boolean isHighQuality;
@@ -16,7 +16,7 @@ public class SubjectFeeItem implements Serializable {
 
     }
 
-    public SubjectFeeItem(String id, String name, Integer credit, Boolean isHighQuality, Double price, Boolean debt,
+    public SubjectFeeItem(SubjectCodeItem id, String name, Integer credit, Boolean isHighQuality, Double price, Boolean debt,
                           Boolean isRestudy, String verifiedPaymentAt) {
         this.id = id;
         this.name = name;
@@ -28,11 +28,11 @@ public class SubjectFeeItem implements Serializable {
         this.verifiedPaymentAt = verifiedPaymentAt;
     }
 
-    public String getId() {
+    public SubjectCodeItem getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(SubjectCodeItem id) {
         this.id = id;
     }
 

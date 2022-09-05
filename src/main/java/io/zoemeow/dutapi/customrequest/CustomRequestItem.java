@@ -1,4 +1,4 @@
-package io.zoemeow.dutapi.objects.customrequest;
+package io.zoemeow.dutapi.customrequest;
 
 import java.io.Serializable;
 
@@ -6,7 +6,8 @@ public class CustomRequestItem implements Serializable {
     private String name = null;
     private String value = null;
 
-    public CustomRequestItem() { }
+    public CustomRequestItem() {
+    }
 
     public CustomRequestItem(String name, String value) {
         this.name = name;

@@ -1,4 +1,4 @@
-package io.zoemeow.dutapi.objects;
+package io.zoemeow.dutapi.objects.accounts;
 
 import java.io.Serializable;
 
@@ -287,5 +287,5 @@ public class AccountInformation implements Serializable {
         this.studentId = studentId;
     }
 
-    
+
 }

@@ -1,16 +1,16 @@
-package io.zoemeow.dutapi.objects;
+package io.zoemeow.dutapi.objects.accounts;
 
 import java.io.Serializable;
 
-public class LessonItem implements Serializable {
+public class WeekItem implements Serializable {
     private Integer start;
     private Integer end;
 
-    public LessonItem() {
-        
+    public WeekItem() {
+
     }
 
-    public LessonItem(Integer start, Integer end) {
+    public WeekItem(Integer start, Integer end) {
         this.start = start;
         this.end = end;
     }

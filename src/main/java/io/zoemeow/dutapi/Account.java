@@ -1,9 +1,10 @@
 package io.zoemeow.dutapi;
 
-import io.zoemeow.dutapi.objects.*;
-import io.zoemeow.dutapi.objects.customrequest.CustomRequestItem;
-import io.zoemeow.dutapi.objects.customrequest.CustomRequestList;
-import io.zoemeow.dutapi.objects.customrequest.CustomResponse;
+import io.zoemeow.dutapi.customrequest.CustomRequest;
+import io.zoemeow.dutapi.customrequest.CustomRequestItem;
+import io.zoemeow.dutapi.customrequest.CustomRequestList;
+import io.zoemeow.dutapi.customrequest.CustomResponse;
+import io.zoemeow.dutapi.objects.accounts.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,6 +19,26 @@ import static io.zoemeow.dutapi.Variables.URL_MAINPAGE;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class Account {
+    private static final SessionExternalFunction extFunc = new SessionExternalFunction() {
+        public String getValueByID(Document webData, String elementId) {
+            return webData.getElementById(elementId).val().length() > 0 ? webData.getElementById(elementId).val() : null;
+        }
+
+        // https://stackoverflow.com/a/22929670
+        public String getValueFromComboBoxByID(Document webData, String elementId) {
+            String result = null;
+            Elements options = webData.getElementById(elementId).children();
+            for (Element option : options) {
+                if (option.hasAttr("selected")) {
+                    result = option.text();
+                    break;
+                }
+            }
+
+            return result;
+        }
+    };
+
     public static CustomResponse getSessionId() throws IOException {
         return CustomRequest.get(null, URL_MAINPAGE);
     }
@@ -91,14 +112,14 @@ public class Account {
         Element schStudy = webData.getElementById("TTKB_GridInfo");
         Elements schStudyList = schStudy.getElementsByClass("GridRow");
         if (schStudyList != null && schStudyList.size() > 0) {
-            for (Element row: schStudyList) {
+            for (Element row : schStudyList) {
                 Elements cellList = row.getElementsByClass("GridCell");
 
                 if (cellList.size() < 10)
                     continue;
 
                 SubjectScheduleItem si = new SubjectScheduleItem();
-                si.setId(cellList.get(1).text());
+                si.setId(new SubjectCodeItem(cellList.get(1).text()));
                 si.setName(cellList.get(2).text());
                 try {
                     si.setCredit(Integer.parseInt(cellList.get(3).text()));
@@ -113,7 +134,7 @@ public class Account {
 
                 if (!cellList.get(7).text().isEmpty()) {
                     String[] cellSplit = cellList.get(7).text().split("; ");
-                    for (String cellSplitItem: cellSplit) {
+                    for (String cellSplitItem : cellSplit) {
                         ScheduleItem scheduleItem = new ScheduleItem();
                         // Set day of week
                         if (cellSplitItem.toUpperCase().contains("CN")) {
@@ -136,7 +157,7 @@ public class Account {
                 // Set schedule study week list.
                 if (!cellList.get(8).text().isEmpty()) {
                     String[] cellSplit = cellList.get(8).text().split(";");
-                    for (String cellSplitItem: cellSplit) {
+                    for (String cellSplitItem : cellSplit) {
                         WeekItem weekItem = new WeekItem();
                         weekItem.setStart(Integer.parseInt(cellSplitItem.split("-")[0]));
                         weekItem.setEnd(Integer.parseInt(cellSplitItem.split("-")[1]));
@@ -159,7 +180,7 @@ public class Account {
         Element schExam = webData.getElementById("TTKB_GridLT");
         Elements schExamList = schExam.getElementsByClass("GridRow");
         if (schExamList != null && schExamList.size() > 0) {
-            for (Element row: schExamList) {
+            for (Element row : schExamList) {
                 Elements cellList = row.getElementsByClass("GridCell");
 
                 if (cellList.size() < 5)
@@ -181,7 +202,7 @@ public class Account {
                     String temp = cellList.get(5).text();
                     String[] tempSplitted = temp.split(", ");
                     LocalDateTime localDateTime = LocalDateTime.of(2000, 1, 1, 0, 0);
-                    for (String tempSplittedItem: tempSplitted) {
+                    for (String tempSplittedItem : tempSplitted) {
                         String[] itemSplitted = tempSplittedItem.split(": ");
                         if (itemSplitted.length < 2)
                             continue;
@@ -196,8 +217,7 @@ public class Account {
                                         Integer.parseInt(dateSplitted[0]),
                                         0, 0, 0
                                 );
-                            }
-                            catch (Exception ex) {
+                            } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
                         }
@@ -254,14 +274,14 @@ public class Account {
         Element schFee = webData.getElementById("THocPhi_GridInfo");
         Elements schFeeList = schFee.getElementsByClass("GridRow");
         if (schFeeList != null && schFeeList.size() > 0) {
-            for (Element row: schFeeList) {
+            for (Element row : schFeeList) {
                 Elements cellList = row.getElementsByClass("GridCell");
 
                 if (cellList.size() < 10)
                     continue;
 
                 SubjectFeeItem sf = new SubjectFeeItem();
-                sf.setId(cellList.get(1).text());
+                sf.setId(new SubjectCodeItem(cellList.get(1).text()));
                 sf.setName(cellList.get(2).text());
                 try {
                     sf.setCredit(Integer.parseInt(cellList.get(3).text()));
@@ -335,26 +355,7 @@ public class Account {
 
     interface SessionExternalFunction {
         String getValueByID(Document webData, String elementId);
+
         String getValueFromComboBoxByID(Document webData, String elementId);
     }
-
-    private static final SessionExternalFunction extFunc = new SessionExternalFunction() {
-        public String getValueByID(Document webData, String elementId) {
-            return webData.getElementById(elementId).val().length() > 0 ? webData.getElementById(elementId).val() : null;
-        }
-
-        // https://stackoverflow.com/a/22929670
-        public String getValueFromComboBoxByID(Document webData, String elementId) {
-            String result = null;
-            Elements options = webData.getElementById(elementId).children();
-            for (Element option : options) {
-                if (option.hasAttr("selected")) {
-                    result = option.text();
-                    break;
-                }
-            }
-
-            return result;
-        }
-    };
 }
