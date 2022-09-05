@@ -49,32 +49,32 @@ class AccountTest {
 
     @Test
     void finalTest() throws Exception {
-        String sessionId;
-
-        String env = System.getenv("dut_account");
-        String user = env.split("\\|")[0];
-        String pass = env.split("\\|")[1];
-
-        Integer year = 22;
-        Integer semester = 1;
-
-        // Initialize Session ID
-        sessionId = initialize();
-        System.out.println(sessionId);
-
-        // Login
-        login(sessionId, user, pass);
-
-        // Subject schedule
-        getSubjectSchedule(sessionId, year, semester);
-
-        // Subject fee
-        getSubjectFee(sessionId, year, semester);
-
-        // Account information
-        getAccountInformation(sessionId);
-
-        // Logout
-        logout(sessionId);
+//        String sessionId;
+//
+//        String env = System.getenv("dut_account");
+//        String user = env.split("\\|")[0];
+//        String pass = env.split("\\|")[1];
+//
+//        Integer year = 22;
+//        Integer semester = 1;
+//
+//        // Initialize Session ID
+//        sessionId = initialize();
+//        System.out.println(sessionId);
+//
+//        // Login
+//        login(sessionId, user, pass);
+//
+//        // Subject schedule
+//        getSubjectSchedule(sessionId, year, semester);
+//
+//        // Subject fee
+//        getSubjectFee(sessionId, year, semester);
+//
+//        // Account information
+//        getAccountInformation(sessionId);
+//
+//        // Logout
+//        logout(sessionId);
     }
 }

@@ -177,7 +177,7 @@ public class News {
             String itemSubjectName = item.substring(0, item.indexOf("[")).trim();
             String itemClass = item.substring(item.indexOf("[") + 1, item.indexOf("]")).toLowerCase().replace("nh", "");
             SubjectCodeItem codeItem = new SubjectCodeItem(
-                    Integer.parseInt(itemClass.split("\\.")[0]),
+                    itemClass.split("\\.")[0],
                     itemClass.split("\\.")[1]
             );
 

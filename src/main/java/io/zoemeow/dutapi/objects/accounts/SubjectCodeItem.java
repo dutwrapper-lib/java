@@ -13,7 +13,7 @@ public class SubjectCodeItem implements Serializable {
     // Area 2
     private Integer schoolYearId = 0;
     // Area 3
-    private Integer studentYearId = 0;
+    private String studentYearId = "";
     // Area 4
     private String classId = "";
 
@@ -21,12 +21,12 @@ public class SubjectCodeItem implements Serializable {
 
     }
 
-    public SubjectCodeItem(Integer studentYearId, String classId) {
+    public SubjectCodeItem(String studentYearId, String classId) {
         this.studentYearId = studentYearId;
         this.classId = classId;
     }
 
-    public SubjectCodeItem(Integer subjectId, Integer schoolYearId, Integer studentYearId, String classId) {
+    public SubjectCodeItem(Integer subjectId, Integer schoolYearId, String studentYearId, String classId) {
         this.subjectId = subjectId;
         this.schoolYearId = schoolYearId;
         this.studentYearId = studentYearId;
@@ -37,10 +37,10 @@ public class SubjectCodeItem implements Serializable {
         if (input.split("\\.").length == 4) {
             this.subjectId = Integer.parseInt(input.split("\\.")[0]);
             this.schoolYearId = Integer.parseInt(input.split("\\.")[1]);
-            this.studentYearId = Integer.parseInt(input.split("\\.")[2]);
+            this.studentYearId = input.split("\\.")[2];
             this.classId = input.split("\\.")[3];
         } else if (input.split("\\.").length == 2) {
-            this.studentYearId = Integer.parseInt(input.split("\\.")[0]);
+            this.studentYearId = input.split("\\.")[0];
             this.classId = input.split("\\.")[1];
         }
     }
@@ -61,11 +61,11 @@ public class SubjectCodeItem implements Serializable {
         this.schoolYearId = schoolYearId;
     }
 
-    public Integer getStudentYearId() {
+    public String getStudentYearId() {
         return studentYearId;
     }
 
-    public void setStudentYearId(Integer studentYearId) {
+    public void setStudentYearId(String studentYearId) {
         this.studentYearId = studentYearId;
     }
 
@@ -85,7 +85,7 @@ public class SubjectCodeItem implements Serializable {
     public String toString(Boolean twoLastDigit) {
         if (twoLastDigit)
             return String.format("%02d.%s", studentYearId, classId);
-        else return String.format("%02d.%02d.%02d.%s", subjectId, schoolYearId, studentYearId, classId);
+        else return String.format("%02d.%02d.%s.%s", subjectId, schoolYearId, studentYearId, classId);
     }
 
     public Boolean equalsTwoDigits(SubjectCodeItem codeItem) {

@@ -10,7 +10,7 @@ class NewsGlobalTest {
     @Test
     void getNews() throws Exception {
         int page = 1;
-        int pageMax = 5;
+        int pageMax = 10;
 
         while (page <= pageMax) {
             System.out.println("==================================");
