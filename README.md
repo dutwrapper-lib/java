@@ -4,10 +4,10 @@ This library provides API (for this repository - crawl data from a page) for acc
 in [DUT Student page - Da Nang University of Technology Student page](http://sv.dut.udn.vn).
 - For java programming language.
 
-[![https://github.com/ZoeMeow5466/DUTAPI.Java/releases/latest](https://img.shields.io/github/v/release/ZoeMeow5466/DUTAPI.Java?style=for-the-badge)](https://github.com/zoemeow5466/DUTAPI.java/releases/)
-[![](https://jitpack.io/v/ZoeMeow5466/DUTAPI.Java.svg)](https://jitpack.io/#ZoeMeow5466/DUTAPI.Java)
+[![https://github.com/dutapi-library/dutapi.java/releases/latest](https://img.shields.io/github/v/release/dutapi-library/dutapi.java?style=for-the-badge)](https://github.com/dutapi-library/dutapi.java/releases/)
+[![](https://jitpack.io/v/dutapi-library/dutapi.java.svg)](https://jitpack.io/#dutapi-library/dutapi.java)
 
-You can also get this library in your Gradle project by clicking this badge here: [![](https://jitpack.io/v/ZoeMeow5466/DUTAPI.Java.svg)](https://jitpack.io/#ZoeMeow5466/DUTAPI.Java/). Thanks [JitPack.io](https://jitpack.io/) for providing it!
+You can also get this library in your Gradle project by clicking this badge here: [![](https://jitpack.io/v/dutapi-library/dutapi.java.svg)](https://jitpack.io/#dutapi-library/dutapi.java/). Thanks [JitPack.io](https://jitpack.io/) for providing it!
 
 ## Requirements for Java:
 - JDK (tested with Eclipse Temurin JDK with Hotspot v17.0.2).
