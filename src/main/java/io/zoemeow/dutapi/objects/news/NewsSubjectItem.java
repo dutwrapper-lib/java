@@ -12,6 +12,8 @@ public class NewsSubjectItem extends NewsGlobalItem implements Serializable {
     private LessonStatus lessonStatus = LessonStatus.Unknown;
     private LessonItem affectedLesson;
     private String affectedRoom;
+    private String lecturerName = "";
+    private Boolean lecturerGender = false;
 
     public Long getAffectedDate() {
         return affectedDate;
@@ -51,6 +53,22 @@ public class NewsSubjectItem extends NewsGlobalItem implements Serializable {
 
     public void setAffectedClass(ArrayList<NewsSubjectAffectedItem> affectedClass) {
         this.affectedClass = affectedClass;
+    }
+
+    public String getLecturerName() {
+        return lecturerName;
+    }
+
+    public void setLecturerName(String lecturerName) {
+        this.lecturerName = lecturerName;
+    }
+
+    public Boolean getLecturerGender() {
+        return lecturerGender;
+    }
+
+    public void setLecturerGender(Boolean lecturerGender) {
+        this.lecturerGender = lecturerGender;
     }
 
     public NewsSubjectItem(ArrayList<NewsSubjectAffectedItem> affectedClass, Long affectedDate, LessonStatus lessonStatus, LessonItem affectedLesson, String affectedRoom) {

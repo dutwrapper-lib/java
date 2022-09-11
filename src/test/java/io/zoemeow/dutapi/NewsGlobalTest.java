@@ -10,13 +10,13 @@ class NewsGlobalTest {
     @Test
     void getNews() throws Exception {
         int page = 1;
-        int pageMax = 10;
+        int pageMax = 3;
 
         while (page <= pageMax) {
             System.out.println("==================================");
             System.out.println("Page " + page);
 
-            List<NewsGlobalItem> newsList = News.getNewsGlobal(1);
+            List<NewsGlobalItem> newsList = News.getNewsGlobal(page);
             System.out.println("Item count: " + newsList.size());
 
             for (NewsGlobalItem newsItem : newsList) {

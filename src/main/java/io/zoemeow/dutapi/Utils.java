@@ -22,7 +22,7 @@ public class Utils {
     }
 
     public static DUTSchoolYearItem getDUTSchoolYear(Long unixTimestamp) throws Exception {
-        URL resource = ClassLoader.getSystemClassLoader().getResource("dut_week.json");
+        URL resource = Thread.currentThread().getContextClassLoader().getResource("dut_week.json");
         if (resource != null) {
             String content = String.join("", Files.readAllLines(Paths.get(resource.toURI()), StandardCharsets.UTF_8));
             DUTSchoolYear itemList = new Gson().fromJson(content, DUTSchoolYear.class);

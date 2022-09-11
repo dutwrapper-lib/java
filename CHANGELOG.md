@@ -1,9 +1,13 @@
 # DUTAPI CHANGE LOG
 
-This file will list all version log for modified, add or remove function of DUTAPI.
+This file will list all version log for modified, add or remove function of dutapi.
+
+## 1.7.2
+- An issue is included a fix, but not testing: getDUTSchoolYear() in Utils.
+- Added lecturer name and lecturer gender in NewsSubjectItem, however, this is still in alpha.
 
 ## 1.7.1 (Hotfix for 1.7.0)
-- Fix an issue in SubjectCodeItem cause string parameter in constructor isn't working.
+- Fixed an issue in SubjectCodeItem cause string parameter in constructor isn't working.
 
 ## 1.7.0
 - Updated implementations to latest.

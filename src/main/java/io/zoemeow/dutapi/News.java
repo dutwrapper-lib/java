@@ -18,10 +18,7 @@ import org.jsoup.select.Elements;
 import java.nio.charset.StandardCharsets;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -123,7 +120,20 @@ public class News {
             subjectItem.setLinks(subjectItem.getLinks());
 
             // For title
-            subjectItem.getAffectedClass().addAll(getAffectedClass(item.getTitle()));
+            try {
+                String lecturerProcessing = item.getTitle().split(" thông báo đến lớp:")[0].trim();
+                String[] splitted = lecturerProcessing.split(" ", 2);
+                if (splitted[0].toLowerCase(Locale.ROOT).equals("cô")) {
+                    subjectItem.setLecturerGender(true);
+                } else {
+                    subjectItem.setLecturerGender(false);
+                }
+                subjectItem.setLecturerName(splitted[1]);
+
+                subjectItem.getAffectedClass().addAll(getAffectedClass(item.getTitle()));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
 
             // For content. If found something, do work. If not, just ignore.
             if (subjectItem.getContent().contains("HỌC BÙ")) {
@@ -169,8 +179,8 @@ public class News {
     }
 
     private static ArrayList<NewsSubjectAffectedItem> getAffectedClass(String input) {
-        input = input.split(" thông báo đến lớp:")[1].trim();
-        ArrayList<String> data1 = new ArrayList<>(Arrays.stream(input.split(" , ")).collect(Collectors.toList()));
+        String subjectProcessing = input.split(" thông báo đến lớp:")[1].trim();
+        ArrayList<String> data1 = new ArrayList<>(Arrays.stream(subjectProcessing.split(" , ")).collect(Collectors.toList()));
         ArrayList<NewsSubjectAffectedItem> data2 = new ArrayList<>();
 
         for (String item: data1) {
