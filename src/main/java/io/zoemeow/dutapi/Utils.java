@@ -21,13 +21,16 @@ public class Utils {
         return System.currentTimeMillis();
     }
 
-    public static DUTSchoolYearItem getDUTSchoolYear(Long unixTimestamp) throws Exception {
-        URL resource = Thread.currentThread().getContextClassLoader().getResource("dut_week.json");
-        if (resource != null) {
-            String content = String.join("", Files.readAllLines(Paths.get(resource.toURI()), StandardCharsets.UTF_8));
-            DUTSchoolYear itemList = new Gson().fromJson(content, DUTSchoolYear.class);
-            return itemList.getCurrentSchoolYear(unixTimestamp);
-        } else throw new Exception("File 'dut_week.json' not found!");
+    public static DUTSchoolYearItem getDUTSchoolYear(Long unixTimestamp) {
+        String content = Variables.DUT_WEEK_JSON;
+        DUTSchoolYear itemList = new Gson().fromJson(content, DUTSchoolYear.class);
+        return itemList.getCurrentSchoolYear(unixTimestamp);
+//        URL resource = Thread.currentThread().getContextClassLoader().getResource("dut_week.json");
+//        if (resource != null) {
+//            String content = String.join("", Files.readAllLines(Paths.get(resource.toURI()), StandardCharsets.UTF_8));
+//            DUTSchoolYear itemList = new Gson().fromJson(content, DUTSchoolYear.class);
+//            return itemList.getCurrentSchoolYear(unixTimestamp);
+//        } else throw new Exception("File 'dut_week.json' not found!");
     }
 
     public static String findFirstString(String test, String regex) {
