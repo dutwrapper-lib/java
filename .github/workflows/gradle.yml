@@ -8,11 +8,14 @@
 name: Java Library test for Gradle
 
 on:
-  push:
-    branches: [ "stable" ]
-  pull_request:
-    branches: [ "stable" ]
   workflow_dispatch:
+    inputs:
+      username:
+        required: true
+        type: text
+      password:
+        required: true
+        type: text
   
 permissions:
   contents: read
@@ -35,4 +38,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: |
+        dut_account=$inputs.username|$inputs.password
+        ./gradlew build
