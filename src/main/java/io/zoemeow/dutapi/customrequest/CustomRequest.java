@@ -10,11 +10,11 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class CustomRequest {
-    public static CustomResponse get(String cookies, String url) throws IOException {
+    public static CustomResponse get(String cookies, String url, Integer timeout) throws IOException {
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(timeout, TimeUnit.SECONDS)
+                .readTimeout(timeout, TimeUnit.SECONDS)
+                .writeTimeout(timeout, TimeUnit.SECONDS)
                 .build();
         Request request = new Request.Builder()
                 .url(url)
@@ -39,11 +39,11 @@ public class CustomRequest {
         return customResponse;
     }
 
-    public static CustomResponse post(String cookies, String url, byte[] requestBytes) throws IOException {
+    public static CustomResponse post(String cookies, String url, byte[] requestBytes, Integer timeout) throws IOException {
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(timeout, TimeUnit.SECONDS)
+                .readTimeout(timeout, TimeUnit.SECONDS)
+                .writeTimeout(timeout, TimeUnit.SECONDS)
                 .build();
 
         RequestBody body = RequestBody.create(requestBytes);
@@ -61,12 +61,11 @@ public class CustomRequest {
         String cookieResponseHeader = response.headers().get("Set-Cookie");
         String sessionId = getSessionIdFromHeader(cookieResponseHeader);
 
-        CustomResponse customResponse = new CustomResponse(
+        return new CustomResponse(
                 response.code(),
                 Objects.requireNonNull(response.body()).string(),
                 sessionId
         );
-        return customResponse;
     }
 
     private static String getSessionIdFromHeader(String header) {

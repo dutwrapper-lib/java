@@ -1,10 +1,7 @@
 package io.zoemeow.dutapi.objects.accounts;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 // Details in http://daotao.dut.udn.vn/download2/Guide_Dangkyhoc.pdf, page 28
 public class SubjectCodeItem implements Serializable {

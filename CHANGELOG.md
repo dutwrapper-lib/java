@@ -2,6 +2,13 @@
 
 This file will list all version log for modified, add or remove function of dutapi.
 
+## 1.7.3
+- Optimize code performance.
+- **[NOTE]:** You can use 1.7.2-hotfix1 if your code ran properly.
+
+## 1.7.2-hotfix1
+- Instead of load file, directly save json to Variables.java.
+
 ## 1.7.2
 - An issue is included a fix, but not testing: getDUTSchoolYear() in Utils.
 - Added lecturer name and lecturer gender in NewsSubjectItem, however, this is still in alpha.

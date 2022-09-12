@@ -13,21 +13,20 @@ class NewsGlobalTest {
         int pageMax = 3;
 
         while (page <= pageMax) {
-            System.out.println("==================================");
-            System.out.println("Page " + page);
-
+            System.out.println("===========================================");
             List<NewsGlobalItem> newsList = News.getNewsGlobal(page);
-            System.out.println("Item count: " + newsList.size());
+            System.out.println(String.format("Page %d (%d item(s))", page, newsList.size()));
 
             for (NewsGlobalItem newsItem : newsList) {
-                System.out.println(newsItem.getDate());
+                System.out.println(String.format("Index %d (date: %d)", newsList.indexOf(newsItem) + 1, newsItem.getDate()));
                 System.out.println(newsItem.getTitle());
                 System.out.println(newsItem.getContentString());
-                for (LinkItem linkItem : newsItem.getLinks()) {
-                    System.out.println("Links:");
-                    System.out.println(" - " + linkItem.getText());
-                    System.out.println(" - " + linkItem.getUrl());
-                    System.out.println(" - " + linkItem.getPosition());
+                System.out.println(String.format("%d link(s)", newsItem.getLinks().size()));
+                if (newsItem.getLinks().size() > 0 ) {
+                    System.out.println("Position | Text | URL");
+                    for (LinkItem linkItem : newsItem.getLinks()) {
+                        System.out.println(String.format("%d | %s | %s", linkItem.getPosition(), linkItem.getText(), linkItem.getUrl()));
+                    }
                 }
             }
             page += 1;

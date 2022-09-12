@@ -2,16 +2,16 @@ package io.zoemeow.dutapi;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class Variables {
-    public static String URL_NEWS = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=%s&PAGETB=%d&COL=TieuDe&NAME=&TAB=0";
-    public static String URL_MAINPAGE = "http://sv.dut.udn.vn/";
-    public static String URL_LOGIN = "http://sv.dut.udn.vn/PageDangNhap.aspx";
-    public static String URL_CHECKLOGGEDIN = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=TTKBLoad&Code=2110";
-    public static String URL_LOGOUT = "http://sv.dut.udn.vn/PageLogout.aspx";
-    public static String URL_SUBJECTSCHEDULE = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=TTKBLoad&Code=%d%d%d";
-    public static String URL_SUBJECTFEE = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=THPhiLoad&Code=%d%d%d";
-    public static String URL_ACCOUNTINFORMATION = "http://sv.dut.udn.vn/PageCaNhan.aspx";
+    public final static String URL_NEWS = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=%s&PAGETB=%d&COL=TieuDe&NAME=&TAB=0";
+    public final static String URL_MAINPAGE = "http://sv.dut.udn.vn/";
+    public final static String URL_LOGIN = "http://sv.dut.udn.vn/PageDangNhap.aspx";
+    public final static String URL_CHECKLOGGEDIN = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=TTKBLoad&Code=2110";
+    public final static String URL_LOGOUT = "http://sv.dut.udn.vn/PageLogout.aspx";
+    public final static String URL_SUBJECTSCHEDULE = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=TTKBLoad&Code=%d%d%d";
+    public final static String URL_SUBJECTFEE = "http://sv.dut.udn.vn/WebAjax/evLopHP_Load.aspx?E=THPhiLoad&Code=%d%d%d";
+    public final static String URL_ACCOUNTINFORMATION = "http://sv.dut.udn.vn/PageCaNhan.aspx";
 
-    public static String __VIEWSTATE = "/wEPDwUKMTY2NjQ1OTEyNA8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgJmD2QWAgIFDxYCHglpbm5lcmh0bWwF/iw8dWwgaWQ" +
+    public final static String __VIEWSTATE = "/wEPDwUKMTY2NjQ1OTEyNA8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBFgJmD2QWAgIFDxYCHglpbm5lcmh0bWwF/iw8dWwgaWQ" +
             "9J21lbnUnIHN0eWxlPSd3aWR0aDogMTAyNHB4OyBtYXJnaW46IDAgYXV0bzsgJz48bGk+PGEgSUQ9ICdsUGFIT01FJyBzdHlsZS" +
             "A9J3dpZHRoOjY1cHgnIGhyZWY9J0RlZmF1bHQuYXNweCc+VHJhbmcgY2jhu6c8L2E+PGxpPjxhIElEPSAnbFBhQ1REVCcgc3R5b" +
             "GUgPSd3aWR0aDo4NXB4JyBocmVmPScnPkNoxrDGoW5nIHRyw6xuaDwvYT48dWwgY2xhc3M9J3N1Ym1lbnUnPjxsaT48YSBJRCA9" +
@@ -91,9 +91,9 @@ public class Variables {
             "7Jz4gxJDEg25nIG5o4bqtcCA8L2E+PC9saT48bGk+PGRpdiBjbGFzcz0nTG9naW5GcmFtZSc+PGRpdiBzdHlsZSA9J21pbi13aW" +
             "R0aDogMTAwcHg7Jz48L2Rpdj48L2Rpdj48L2xpPjwvdWw+ZGSG2IsLearNCsLzIS4IUfWLr31R7FXOMNnIboe38N+JJg==";
 
-    public static String __VIEWSTATEGENERATOR = "20CC0D2F";
+    public final static String __VIEWSTATEGENERATOR = "20CC0D2F";
 
-    public static String QLTH_btnLogin = "Đăng+nhập";
+    public final static String QLTH_btnLogin = "Đăng+nhập";
 
-    public static String DUT_WEEK_JSON = "{\"gmt\":0,\"unix\":\"milliseconds\",\"list\":[{\"name\":\"2016-2017\",\"year\":16,\"start\":1470589200000},{\"name\":\"2017-2018\",\"year\":17,\"start\":1502038800000},{\"name\":\"2018-2019\",\"year\":18,\"start\":1533488400000},{\"name\":\"2019-2020\",\"year\":19,\"start\":1564938000000},{\"name\":\"2020-2021\",\"year\":20,\"start\":1596387600000},{\"name\":\"2021-2022\",\"year\":21,\"start\":1627837200000},{\"name\":\"2022-2023\",\"year\":22,\"start\":1659286800000}]}";
+    public final static String DUT_WEEK_JSON = "{\"gmt\":0,\"unix\":\"milliseconds\",\"list\":[{\"name\":\"2016-2017\",\"year\":16,\"start\":1470589200000},{\"name\":\"2017-2018\",\"year\":17,\"start\":1502038800000},{\"name\":\"2018-2019\",\"year\":18,\"start\":1533488400000},{\"name\":\"2019-2020\",\"year\":19,\"start\":1564938000000},{\"name\":\"2020-2021\",\"year\":20,\"start\":1596387600000},{\"name\":\"2021-2022\",\"year\":21,\"start\":1627837200000},{\"name\":\"2022-2023\",\"year\":22,\"start\":1659286800000}]}";
 }

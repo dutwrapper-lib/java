@@ -16,7 +16,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.nio.charset.StandardCharsets;
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -36,7 +39,7 @@ public class News {
                 break;
         }
 
-        CustomResponse response = CustomRequest.get(null, url);
+        CustomResponse response = CustomRequest.get(null, url, 60);
         if (response.getReturnCode() < 200 || response.getReturnCode() >= 300)
             throw new Exception("Server was returned with code " + response.getReturnCode() + ".");
 
@@ -123,11 +126,7 @@ public class News {
             try {
                 String lecturerProcessing = item.getTitle().split(" thông báo đến lớp:")[0].trim();
                 String[] splitted = lecturerProcessing.split(" ", 2);
-                if (splitted[0].toLowerCase(Locale.ROOT).equals("cô")) {
-                    subjectItem.setLecturerGender(true);
-                } else {
-                    subjectItem.setLecturerGender(false);
-                }
+                subjectItem.setLecturerGender(splitted[0].toLowerCase(Locale.ROOT).equals("cô"));
                 subjectItem.setLecturerName(splitted[1]);
 
                 subjectItem.getAffectedClass().addAll(getAffectedClass(item.getTitle()));
@@ -180,7 +179,7 @@ public class News {
 
     private static ArrayList<NewsSubjectAffectedItem> getAffectedClass(String input) {
         String subjectProcessing = input.split(" thông báo đến lớp:")[1].trim();
-        ArrayList<String> data1 = new ArrayList<>(Arrays.stream(subjectProcessing.split(" , ")).collect(Collectors.toList()));
+        ArrayList<String> data1 = Arrays.stream(subjectProcessing.split(" , ")).collect(Collectors.toCollection(ArrayList::new));
         ArrayList<NewsSubjectAffectedItem> data2 = new ArrayList<>();
 
         for (String item: data1) {

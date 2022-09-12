@@ -9,12 +9,10 @@ in [DUT Student page - Da Nang University of Technology Student page](http://sv.
 
 You can also get this library in your Gradle project by clicking this badge here: [![](https://jitpack.io/v/dutapi-library/dutapi.java.svg)](https://jitpack.io/#dutapi-library/dutapi.java/). Thanks [JitPack.io](https://jitpack.io/) for providing it!
 
-## Requirements for Java:
-- JDK (tested with Eclipse Temurin JDK with Hotspot v17.0.2).
-
-## Using libraries:
-- [Jsoup](https://jsoup.org/)
-- [OkHttp3](https://square.github.io/okhttp/)
+## Requirements
+- JDK (tested with Eclipse Temurin JDK with Hotspot v17.0.2 and v8).
+- [Jsoup](https://jsoup.org/) (included in library)
+- [OkHttp3](https://square.github.io/okhttp/) (included in library
 
 ## License
 [MIT](LICENSE) (click to view licenses)
@@ -37,8 +35,8 @@ You can also get this library in your Gradle project by clicking this badge here
 
 ## Latest change log
 
-### Version 1.7.2
-- An issue is included a fix, but not testing: getDUTSchoolYear() in Utils.
-- Added lecturer name and lecturer gender in NewsSubjectItem, however, this is still in alpha.
+### 1.7.3
+- Optimize code performance.
+- **[NOTE]:** You can use 1.7.2-hotfix1 if your code ran properly.
 
 To view log for older versions, [click here](CHANGELOG.md).

@@ -286,6 +286,4 @@ public class AccountInformation implements Serializable {
     public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
-
-
 }
