@@ -184,11 +184,21 @@ public class News {
 
         for (String item: data1) {
             String itemSubjectName = item.substring(0, item.indexOf("[")).trim();
-            String itemClass = item.substring(item.indexOf("[") + 1, item.indexOf("]")).toLowerCase().replace("nh", "");
-            SubjectCodeItem codeItem = new SubjectCodeItem(
-                    itemClass.split("\\.")[0],
-                    itemClass.split("\\.")[1]
-            );
+            String itemClass = item.substring(item.indexOf("[") + 1, item.indexOf("]")).toLowerCase();
+            SubjectCodeItem codeItem;
+            if (itemClass.contains(".nh")) {
+                String[] data = itemClass.split(".nh");
+                codeItem = new SubjectCodeItem(
+                    data[0],
+                    data[1]
+                );
+            } else {
+                String[] data = itemClass.split("nh");
+                codeItem = new SubjectCodeItem(
+                    data[0],
+                    data[1]
+                );
+            }
 
             if (data2.stream().noneMatch(p -> Objects.equals(p.getSubjectName(), itemSubjectName))) {
                 NewsSubjectAffectedItem item2 = new NewsSubjectAffectedItem();
