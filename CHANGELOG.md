@@ -1,6 +1,12 @@
-# DUTAPI CHANGE LOG
+# DUTWRAPPER.JAVA CHANGE LOG
 
 This file will list all version log for modified, add or remove function of dutapi.
+
+## 1.7.5
+- Changed package name to io.dutwrapperlib.dutwrapper. Get package in JitPack still is io.dutwrapper-lib.java.
+
+## 1.7.4
+- Fixed a issue which in web fault cause news subject failed to fetch data if different split condition is used (ex: 20Nh92 instead of 20.Nh92).
 
 ## 1.7.3
 - Optimize code performance.

@@ -2,8 +2,8 @@ plugins {
     id 'java-library'
 }
 
-group 'io.zoemeow.dutapi'
-version '1.7.4'
+group 'io.dutwrapperlib.dutwrapper'
+version '1.7.5'
 
 repositories {
     mavenCentral()
